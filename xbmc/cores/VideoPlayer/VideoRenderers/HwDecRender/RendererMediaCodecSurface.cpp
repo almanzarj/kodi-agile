@@ -79,7 +79,7 @@ void CRendererMediaCodecSurface::ReleaseBuffer(int idx)
   }
 }
 
-int CRendererMediaCodecSurface::GetImageHook(YV12Image *image, int source, bool readonly)
+int CRendererMediaCodecSurface::GetImageHook(YuvImage *image, int source, bool readonly)
 {
   return source;
 }
