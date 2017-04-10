@@ -21,16 +21,25 @@
 
 #define MAX_PLANES 3
 
-typedef struct YuvImage
+struct YuvImage
 {
   uint8_t* plane[MAX_PLANES];
-  int      planesize[MAX_PLANES];
-  unsigned stride[MAX_PLANES];
-  unsigned width;
-  unsigned height;
-  unsigned flags;
+  int planesize[MAX_PLANES];
+  unsigned int stride[MAX_PLANES];
+  unsigned int width;
+  unsigned int height;
+  unsigned int flags;
 
-  unsigned cshift_x; /* this is the chroma shift used */
-  unsigned cshift_y;
-  unsigned bpp; /* bytes per pixel */
-} YuvImage;
+  unsigned int cshift_x; // this is the chroma shift used
+  unsigned int cshift_y;
+  unsigned int bpp; // bytes per pixel
+};
+
+class CVideoBuffer
+{
+public:
+  uint8_t (*GetPlanePointers())[MAX_PLANES];
+
+protected:
+  YuvImage m_image;
+};
